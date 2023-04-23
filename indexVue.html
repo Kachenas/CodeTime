@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Example</title>
+</head>
+<body>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
+    <div id="app">
+        <label for="txnDate">Transaction Date</label>
+        <input type="date" id="start" v-model="txnDate">
+        <br>
+        <label for="product">Product</label>
+        <input type="text" v-model="product">
+        <br>
+        <label for="price">Price</label>
+        <input type="number" v-model="price">
+        <br>
+        <label for="quantity">Quantity</label>
+        <input type="text" v-model="quantity">
+        <br>
+        <label for="soldTo">Sold To</label>
+        <input type="text" v-model="soldTo">
+        <br>
+        <p>------------------------------------------</p>
+        <p>Transaction Date: {{ txnDate }}</p>
+        <p>Product Sold: {{ product }}</p>
+        <p>Product Price: {{ price }}</p>
+        <p>Quantity/Unit: {{ quantity }}</p>
+        <p>Sold To: {{ soldTo }}</p>
+        <p>Discount: {{ discount }}</p>
+        <p>Amount Total: {{ computeTotal() }}</p>
+        <p>Difference in Amount: {{ differenceAmount }}</p>
+        <p>------------------------------------------</p>
+        <label for="discount">Discount Percentage</label>
+        <input type="text" v-model="discount">
+        <button @click="discountTotal()">discount</button>
+        <div>Discounted Total: {{ discountTotalSum }}</div>
+        <p>------------------------------------------</p>
+        <input type="text" v-on:input="signBy($event, 'Almonte')" v-on:keyup.enter="confirmSignatureSign">
+        <!-- <p>Authorized By: {{ signature }}</p> -->
+        <p>Authorized By: {{ confirmSignature }}</p>
+        <p>------------------------------------------</p>
+        <input type="text" v-bind:value="color" v-on:input="colorFunc($event)"> 
+        <!-- v-bind:value="color" v-on:input="colorFunc($event)" long version -->
+        <!-- v-model="color" short version --> 
+        <button v-on:click="resetInput">Clear</button>
+        <p>{{ color }}</p>
+        <p>------------------------------------------</p>
+        <label for="gender">Gender</label>
+        <input type="text" v-model="gender">
+        <p>{{ getGender() }}</p>
+        <p>------------------------------------------</p>
+        <p>{{ jobhired }}</p>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/jsVUE2.js"></script>
+</body>
+</html> 

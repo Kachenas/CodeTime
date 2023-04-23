@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Example</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <label for="goal">Goal</label>
+            <input type="text" id="goal" v-model="enteredValue" />
+            <button v-on:click="addGoal">Add Goal</button><br>
+        </div>
+        <ul>
+            <li v-for="goal in goals">{{ goal }}</li>
+        </ul>
+        <hr> 
+        <div>
+            <label for="anime">Anime</label>
+            <input type="text" id="anime" v-model="animeValue" />
+            <button v-on:click="addAnime">Add Animel</button>
+        </div>
+         <ul>
+            <li v-for="anime in animes">{{ anime }}</li>
+        </ul>
+        <hr>
+        <p>Sample with this one {{ website }}</p>
+        <a v-bind:href="website">Wordpress</a>
+        <p>My age is {{ computeAge() }}</p>
+        <p v-html="sampleA"></p>
+        <p v-html="computeAge()"></p>
+        <hr>
+        <h1>Events</h1>
+        <button v-on:click="add(20)">Add</button>
+        <button v-on:click="remove(5)">Remove</button>
+        <p>Result: {{ counter }}</p>
+        <hr>
+       <label for="color">Color Me</label>
+       <input type="text" id="color" v-model="colorValue">
+       <button v-on:click.middle="addColor">Add Color</button>
+       <ul>
+        <li v-for="color in colors">{{ color }}</li>
+       </ul>
+       <hr>
+       <label for="AddNumber">Add Numbers</label><br>
+       <input type="text" id="num1" v-model="num1"><br>
+       <input type="text" id="num2" v-model="num2"><br>
+       <button v-on:click="addNumbers()">Add Numbers</button>
+       <h1>{{ sum }}</h1>
+       <hr> 
+       <input type="text" v-on:input="setName($event, 'Almonte')">
+       <p>Your Name {{ name }}</p>
+       <hr>
+       <input type="text" v-model="surname">
+       <p>{{ surname }}</p>
+       <hr>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/jsVue.js"></script>
+</body>
+</html> 
